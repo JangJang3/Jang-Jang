@@ -42,8 +42,13 @@ class Example(QWidget):
 
         btn = QPushButton('Button', self)
         btn.setToolTip('This is a <b>QPushButton</b> widget')
+        btn.clicked.connect(self.clickMethod)
         btn.resize(btn.sizeHint())
         btn.move(0, 0)
+
+
+    def clickMethod(self):
+        print('You clicked the button.')
 
     def close(self):
         qbtn = QPushButton('Quit', self)
@@ -61,6 +66,7 @@ class Example(QWidget):
             event.accept()
         else:
             event.ignore()
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
